@@ -1,8 +1,12 @@
-from cars import views
 from django.urls import path
 
-from cars.views import index
+from cars.views import index, registration, ProfileView, CarView
 
 urlpatterns = [
-path('', index, name='index'),
+    path('', index, name='home'),
+    path('registration/', registration, name='registration'),
+    path('profile/', ProfileView.as_view(), name='profile'),
+    path('cars/', CarView.as_view(), name='cars'),
+
+    # path('callback/', callback, name='callback'),
 ]

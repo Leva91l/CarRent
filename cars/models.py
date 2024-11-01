@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -19,3 +20,8 @@ class Car(models.Model):
         verbose_name = 'Авто'
         verbose_name_plural = 'Авто'
         ordering = ['price', 'year', '-price']
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=15, blank=True, null=True)

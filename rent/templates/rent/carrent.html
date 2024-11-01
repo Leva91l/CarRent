@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 offset-4 text-center fw-bolder fs-4">
+                <br><br><br>
+                <img src="{{ car.image.url }}" alt="" width="600px"><br><br>
+                {{ car.brand }}
+                {{ car.model }}
+                <p class="fw-light"><em>{{ car.price }}р/сутки</em></p>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-4 offset-4 text-center">
+                {% if request.user.is_authenticated %}
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Отправить</button>
+                    </form>
+                {% else %}
+                    <h1>Для аренды авто необходимо зарегестрироваться или войти</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

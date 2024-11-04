@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'cars.apps.CarsConfig',
     'city.apps.CityConfig',
     'rent.apps.RentConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
